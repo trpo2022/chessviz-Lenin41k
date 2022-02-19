@@ -1,15 +1,53 @@
 #include <stdio.h>
 
-int charint(char n);
-char intchar(int n);
-void print(int* cor);
+int charint(char);
+char intchar(int);
+void print(int*);
+void startpos(int*);
 
 int main() {
-	int cor[9][9]; 
-	
+	int cor[8][8]; 
+	startpos(&cor);
+	print(&cor)
+}
 
-
-	print(cor)
+void startpos(int* cor) {
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (j == 0 || j == 1) {
+				if (j == 1)
+					cor[i][j] = 61;
+				if (j == 0) {
+					if (i == 0 || i == 7)
+						cor[i][j] == 51;
+					if (i == 1 || i == 6)
+						cor[i][j] == 41;
+					if (i == 2 || i == 5)
+						cor[i][j] == 31;
+					if (i == 3)
+						cor[i][j] == 21;
+					if (i == 4)
+						cor[i][j] == 11;
+				}
+			}
+			if (j == 7 || j == 6) {
+				if (j == 6)
+					cor[i][j] = 60;
+				if (j == 0) {
+					if (i == 0 || i == 7)
+						cor[i][j] == 50;
+					if (i == 1 || i == 6)
+						cor[i][j] == 40;
+					if (i == 2 || i == 5)
+						cor[i][j] == 30;
+					if (i == 3)
+						cor[i][j] == 20;
+					if (i == 4)
+						cor[i][j] == 10;
+				}
+			}
+		}
+	}
 }
 
 void print(int* cor) {
