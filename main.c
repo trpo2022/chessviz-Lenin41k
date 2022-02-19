@@ -2,87 +2,88 @@
 
 int charint(char);
 char intchar(int);
-void print(int*);
-void startpos(int*);
+void print(int (*)[9]);
+void startpos(int(*)[9]);
 
 int main() {
-	int cor[8][8]; 
-	startpos(&cor);
-	print(&cor)
+	int cor[9][9]; 
+	startpos(cor);
+	print(cor);
 }
 
-void startpos(int* cor) {
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
+void startpos(int cor[][9]) {
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
 			if (j == 0 || j == 1) {
 				if (j == 1)
 					cor[i][j] = 61;
 				if (j == 0) {
-					if (i == 0 || i == 7)
-						cor[i][j] == 51;
-					if (i == 1 || i == 6)
-						cor[i][j] == 41;
-					if (i == 2 || i == 5)
-						cor[i][j] == 31;
-					if (i == 3)
-						cor[i][j] == 21;
+					if (i == 1 || i == 8)
+						cor[i][j] = 51;
+					if (i == 2 || i == 7)
+						cor[i][j] = 41;
+					if (i == 3 || i == 6)
+						cor[i][j] = 31;
 					if (i == 4)
-						cor[i][j] == 11;
+						cor[i][j] = 21;
+					if (i == 5)
+						cor[i][j] = 11;
 				}
 			}
 			if (j == 7 || j == 6) {
 				if (j == 6)
 					cor[i][j] = 60;
-				if (j == 0) {
-					if (i == 0 || i == 7)
-						cor[i][j] == 50;
-					if (i == 1 || i == 6)
-						cor[i][j] == 40;
-					if (i == 2 || i == 5)
-						cor[i][j] == 30;
-					if (i == 3)
-						cor[i][j] == 20;
+				if (j == 7) {
+					if (i == 1 || i == 8)
+						cor[i][j] = 50;
+					if (i == 2 || i == 7)
+						cor[i][j] = 40;
+					if (i == 3 || i == 6)
+						cor[i][j] = 30;
 					if (i == 4)
-						cor[i][j] == 10;
+						cor[i][j] = 20;
+					if (i == 5)
+						cor[i][j] = 10;
 				}
 			}
 		}
 	}
 }
 
-void print(int* cor) {
+void print(int cor[][9]) {
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
-			if (cor[i][j] == 10)
+			if (j == 0 && i != 8)
+				printf("%d", 8 - i);
+			else if (i == 8 && j != 0)
+				printf("%c", intchar(j));
+			else if (cor[j][i] == 10)
 				printf("K");
-			if (cor[i][j] == 11)
+			else if (cor[j][i] == 11)
 				printf("k");
-			if (cor[i][j] == 20)
+			else if (cor[j][i] == 20)
 				printf("Q");
-			if (cor[i][j] == 21)
+			else if (cor[j][i] == 21)
 				printf("q");
-			if (cor[i][j] == 30)
-				printf("R");
-			if (cor[i][j] == 31)
-				printf("r");
-			if (cor[i][j] == 40)
-				printf("N");
-			if (cor[i][j] == 41)
-				printf("n");
-			if (cor[i][j] == 50)
+			else if (cor[j][i] == 30)
 				printf("B");
-			if (cor[i][j] == 51)
+			else if (cor[j][i] == 31)
 				printf("b");
-			if (cor[i][j] == 60)
+			else if (cor[j][i] == 40)
+				printf("N");
+			else if (cor[j][i] == 41)
+				printf("n");
+			else if (cor[j][i] == 50)
+				printf("R");
+			else if (cor[j][i] == 51)
+				printf("r");
+			else if (cor[j][i] == 60)
 				printf("P");
-			if (cor[i][j] == 61)
+			else if (cor[j][i] == 61)
 				printf("p");
-			if (cor[i][j] == 0 && j != 8 && i != 0)
+			else
 				printf(" ");
-			if (i == 0 && j != 8)
-				printf("%d", j); 
-			if (j == 8 && i != 0)
-				printf("%c", intchar(i))
+			printf(" ");
 		}
 		printf("\n");
 	}	
