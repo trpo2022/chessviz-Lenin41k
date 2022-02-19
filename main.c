@@ -88,7 +88,12 @@ void print(int cor[][9]) {
 		printf("\n");
 	}	
 }
-
+//P-60 p-61 
+//R-50 r-51 
+//N-40 n-41 
+//B-30 b-31 
+//Q-20 q-21 
+//K-10 k-11
 int charint(char n) {
 	int m;
 	if (n == 'a')
@@ -130,4 +135,8 @@ char intchar(int n) {
 	if (n == 8)
 		m = 'h';
 	return m; 
+}
+
+int movetruechek(int xs, int ys, int xf, int yf) { 
+
 }
