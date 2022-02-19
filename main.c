@@ -139,4 +139,7 @@ char intchar(int n) {
 
 int movetruechek(int xs, int ys, int xf, int yf) { 
 
+
+
+
 }
