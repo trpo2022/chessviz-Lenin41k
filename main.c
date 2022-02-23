@@ -5,8 +5,10 @@ int char_int(char n);
 char int_char(int n);
 void print(int cor[][FIELD_SIZE]);
 void start_pos(int cor[][FIELD_SIZE]);
-int move_true_check_black(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
-int move_true_check_white(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
+int move_true_check_black(int xs, int ys, int xf, int yf,
+                          int cor[][FIELD_SIZE]);
+int move_true_check_white(int xs, int ys, int xf, int yf,
+                          int cor[][FIELD_SIZE]);
 void move(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
 
 int main() {
@@ -177,7 +179,8 @@ char int_char(int n) {
   return m;
 }
 
-int move_true_check_white(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]) {
+int move_true_check_white(int xs, int ys, int xf, int yf,
+                          int cor[][FIELD_SIZE]) {
   int true = 0, mx, my;
   if (cor[ys][xs] == 60) {
     if (xs == xf + 1 && ys == yf) {
@@ -453,7 +456,8 @@ int move_true_check_white(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE])
   return true;
 }
 
-int move_true_check_black(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]) {
+int move_true_check_black(int xs, int ys, int xf, int yf,
+                          int cor[][FIELD_SIZE]) {
   int true = 0, mx, my;
   if (cor[ys][xs] == 61) {
     if (xs == xf - 1 && ys == yf)
