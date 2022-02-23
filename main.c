@@ -1,24 +1,25 @@
 #include <stdio.h>
+#define FIELD_SIZE 9
 
-int charint(char);
-char intchar(int);
-void print(int (*)[9]);
-void startpos(int (*)[9]);
-int movetruechekbleck(int, int, int, int, int (*)[9]);
-int movetruechekwhite(int, int, int, int, int (*)[9]);
-void move(int, int, int, int, int (*)[9]);
+int char_int(char n);
+char int_char(int n);
+void print(int cor[][FIELD_SIZE]);
+void start_pos(int cor[][FIELD_SIZE]);
+int move_true_check_black(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
+int move_true_check_white(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
+void move(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]);
 
 int main() {
-  int cor[9][9];
+  int cor[FIELD_SIZE][FIELD_SIZE];
   char trash, yts, ytf;
   int xs, ys, xf, yf, finish = 0, turne = 0, check;
   printf("Input format: char int char char inr like e2-e4. \n");
-  startpos(cor);
+  start_pos(cor);
 
   print(cor);
   printf("Turne White\n");
-  for (int i; i < 9; i++) {
-    for (int j; j < 9; j++) {
+  for (int i; i < FIELD_SIZE; i++) {
+    for (int j; j < FIELD_SIZE; j++) {
       printf("%d", cor[j][i]);
     }
     printf("\n");
@@ -32,13 +33,13 @@ int main() {
             if (ytf <= 'h' && ytf >= 'a') {
               xs = 8 - xs;
               xf = 8 - xf;
-              ys = charint(yts);
-              yf = charint(ytf);
+              ys = char_int(yts);
+              yf = char_int(ytf);
               if (turne == 1) {
-                if (movetruechekbleck(xs, ys, xf, yf, cor) == 1)
+                if (move_true_check_black(xs, ys, xf, yf, cor) == 1)
                   turne = 0;
               } else if (turne == 0) {
-                if (movetruechekwhite(xs, ys, xf, yf, cor) == 1)
+                if (move_true_check_white(xs, ys, xf, yf, cor) == 1)
                   turne = 1;
               }
               print(cor);
@@ -55,9 +56,9 @@ int main() {
   return 0;
 }
 
-void startpos(int cor[][9]) {
-  for (int i = 0; i < 9; i++) {
-    for (int j = 0; j < 9; j++) {
+void start_pos(int cor[][FIELD_SIZE]) {
+  for (int i = 0; i < FIELD_SIZE; i++) {
+    for (int j = 0; j < FIELD_SIZE; j++) {
       if (j == 0 || j == 1) {
         if (j == 1)
           cor[i][j] = 61;
@@ -95,13 +96,13 @@ void startpos(int cor[][9]) {
   }
 }
 
-void print(int cor[][9]) {
-  for (int i = 0; i < 9; i++) {
-    for (int j = 0; j < 9; j++) {
+void print(int cor[][FIELD_SIZE]) {
+  for (int i = 0; i < FIELD_SIZE; i++) {
+    for (int j = 0; j < FIELD_SIZE; j++) {
       if (j == 0 && i != 8)
         printf("%d", 8 - i);
       else if (i == 8 && j != 0)
-        printf("%c", intchar(j));
+        printf("%c", int_char(j));
       else if (cor[j][i] == 10)
         printf("K");
       else if (cor[j][i] == 11)
@@ -134,7 +135,7 @@ void print(int cor[][9]) {
   }
 }
 
-int charint(char n) {
+int char_int(char n) {
   int m;
   if (n == 'a')
     m = 1;
@@ -155,7 +156,7 @@ int charint(char n) {
   return m;
 }
 
-char intchar(int n) {
+char int_char(int n) {
   char m;
   if (n == 1)
     m = 'a';
@@ -176,7 +177,7 @@ char intchar(int n) {
   return m;
 }
 
-int movetruechekwhite(int xs, int ys, int xf, int yf, int cor[][9]) {
+int move_true_check_white(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]) {
   int true = 0, mx, my;
   if (cor[ys][xs] == 60) {
     if (xs == xf + 1 && ys == yf) {
@@ -452,7 +453,7 @@ int movetruechekwhite(int xs, int ys, int xf, int yf, int cor[][9]) {
   return true;
 }
 
-int movetruechekbleck(int xs, int ys, int xf, int yf, int cor[][9]) {
+int move_true_check_black(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]) {
   int true = 0, mx, my;
   if (cor[ys][xs] == 61) {
     if (xs == xf - 1 && ys == yf)
@@ -729,7 +730,7 @@ int movetruechekbleck(int xs, int ys, int xf, int yf, int cor[][9]) {
   return true;
 }
 
-void move(int xs, int ys, int xf, int yf, int cor[][9]) {
+void move(int xs, int ys, int xf, int yf, int cor[][FIELD_SIZE]) {
   cor[yf][xf] = cor[ys][xs];
   cor[ys][xs] = 0;
 }
