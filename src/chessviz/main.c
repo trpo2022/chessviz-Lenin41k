@@ -1,5 +1,5 @@
-#include "int_switch_char.h"
 #include "../libchessviz/chessviz.h"
+#include "int_switch_char.h"
 #include <stdio.h>
 
 int main()

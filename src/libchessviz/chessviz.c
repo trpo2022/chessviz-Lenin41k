@@ -1,5 +1,5 @@
-#include "../chessviz/int_switch_char.h"
 #include "chessviz.h"
+#include "../chessviz/int_switch_char.h"
 #include <stdio.h>
 
 void start_pos(int cor[][FIELD_SIZE])
