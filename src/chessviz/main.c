@@ -25,26 +25,25 @@ int main()
                   yts,
                   xs,
                   ytf,
-                  xf) == 1) {
-                            xs = 8 - xs;
-                            xf = 8 - xf;
-                            ys = char_int(yts);
-                            yf = char_int(ytf);
-                            if (turne == 1) {
-                                if (move_true_check(xs, ys, xf, yf, cor, turne)
-                                    == 1)
-                                    turne = 0;
-                            } else if (turne == 0) {
-                                if (move_true_check(xs, ys, xf, yf, cor, turne)
-                                    == 1)
-                                    turne = 1;
-                            }
-                            print(cor);
-                            if (turne == 1) {
-                                printf("Turne Black\n");
-                            } else if (turne == 0) {
-                                printf("Turne White\n");
-                            }
+                  xf)
+            == 1) {
+            xs = 8 - xs;
+            xf = 8 - xf;
+            ys = char_int(yts);
+            yf = char_int(ytf);
+            if (turne == 1) {
+                if (move_true_check(xs, ys, xf, yf, cor, turne) == 1)
+                    turne = 0;
+            } else if (turne == 0) {
+                if (move_true_check(xs, ys, xf, yf, cor, turne) == 1)
+                    turne = 1;
+            }
+            print(cor);
+            if (turne == 1) {
+                printf("Turne Black\n");
+            } else if (turne == 0) {
+                printf("Turne White\n");
+            }
         } else {
             printf("Error input\n");
         }
