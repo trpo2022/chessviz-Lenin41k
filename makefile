@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra
 CPPFLAGS=-MMD
 
-chessviz: obj/src/chessviz/main.o obj/lib/libchessviz.a
+bin/chessviz: obj/src/chessviz/main.o obj/lib/libchessviz.a
 	$(CC) $(CFLAGS) -o $@ $^
 
 obj/src/chessviz/main.o: src/chessviz/main.c
@@ -19,5 +19,6 @@ obj/src/chessviz/int_switch_char.o: src/chessviz/int_switch_char.c
 
 .PHONY: clean
 	rm -f obj/src/*chessviz/*.o
+	rm -f obj/src/*chessciz/*.d
 
 -include int_switch_char.d chessviz.d main.d
