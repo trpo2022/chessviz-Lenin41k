@@ -1,0 +1,9 @@
+.*
+a.*
+*.d
+*.o
+*.a
+*.exe
+*.out
+chessviz
+bin/src/*/*.o
